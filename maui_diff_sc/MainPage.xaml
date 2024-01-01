@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:local="clr-namespace:maui_diff_sc"
+             x:Class="maui_diff_sc.MainPage">
+
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <DataTemplate x:Key="PageType1Template">
+                <StackLayout>
+                    <Image Source="{Binding ImageUrl1}" 
+                           Aspect="AspectFill" />
+                    <Label Text="{Binding Title}" 
+                           FontSize="Large"
+                           HorizontalOptions="Center"
+                           Padding="30" />                    
+                    <Label Text="{Binding Description}"
+                           FontSize="20"
+                           Padding="30,0,0,0"
+                           />
+
+                    <Grid Padding="30,30,0,0">
+                        <!-- Define Columns -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Define Rows if necessary -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <!-- Add more rows as needed -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Place elements in the grid -->
+                        <!-- First Column -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="Age: " FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Appearances: " FontSize="20" Padding="0,20,0,0" />
+                        <Label Grid.Row="2" Grid.Column="0" Text="Total Goals: " FontSize="20" Padding="0,20,0,0" />
+
+                        <!-- Second Column -->
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Age}" FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Appearances}" FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding totalGoals}" FontSize="20" Padding="0,20,0,0"/>
+                    </Grid>
+
+                </StackLayout>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="PageType2Template">
+                <StackLayout>
+                    <Image Source="{Binding ImageUrl2}" 
+                           Aspect="AspectFill" />
+                    <Label Text="{Binding Title}" 
+                           FontSize="Large"                           
+                           HorizontalOptions="Center"
+                           Padding="30" />
+                    <Label Text="{Binding Description}"
+                           FontSize="20"
+                           Padding="30,0,0,0"/>
+                    
+                    <Grid Padding="30,30,0,0">
+                        <!-- Define Columns -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Define Rows if necessary -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <!-- Add more rows as needed -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Place elements in the grid -->
+                        <!-- First Column -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="Age: " FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Appearances: " FontSize="20" Padding="0,20,0,0" />
+                        <Label Grid.Row="2" Grid.Column="0" Text="Total Goals: " FontSize="20" Padding="0,20,0,0" />
+
+                        <!-- Second Column -->
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Age}" FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Appearances}" FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding totalGoals}" FontSize="20" Padding="0,20,0,0"/>
+                    </Grid>
+                </StackLayout>
+            </DataTemplate>
+
+            
+            <DataTemplate x:Key="PageType3Template">
+                <StackLayout>
+                    <Image Source="{Binding ImageUrl3}" 
+       Aspect="AspectFill" />
+                    <Label Text="{Binding Title}" 
+       FontSize="Large"                           
+       HorizontalOptions="Center"
+       Padding="30" />
+                    <Label Text="{Binding Description}"
+       FontSize="20"
+       Padding="30,0,0,0"/>
+
+                    <Grid Padding="30,30,0,0">
+                        <!-- Define Columns -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Define Rows if necessary -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <!-- Add more rows as needed -->
+                        </Grid.RowDefinitions>
+
+                        <!-- Place elements in the grid -->
+                        <!-- First Column -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="Age: " FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="0" Text="Appearances: " FontSize="20" Padding="0,20,0,0" />
+                        <Label Grid.Row="2" Grid.Column="0" Text="Total Goals: " FontSize="20" Padding="0,20,0,0" />
+
+                        <!-- Second Column -->
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Age}" FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Appearances}" FontSize="20" Padding="0,20,0,0"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding totalGoals}" FontSize="20" Padding="0,20,0,0"/>
+                    </Grid>
+
+
+                </StackLayout>
+            </DataTemplate>
+
+            <local:MyDataTemplateSelector x:Key="myDataTemplateSelector"
+                              PageType1Template="{StaticResource PageType1Template}"
+                              PageType2Template="{StaticResource PageType2Template}"
+                              PageType3Template="{StaticResource PageType3Template}"/>
+             
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <CarouselView ItemsSource="{Binding Pages}"
+                  ItemTemplate="{StaticResource myDataTemplateSelector}" />
+
+</ContentPage>
+
+
+ 
+
+ 
+    
+    
+    
+    
+    
+    
+ 
